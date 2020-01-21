@@ -38,7 +38,25 @@ const styles = {
 }
 
 class Comment extends React.Component {
+
+  constructor(props){
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log(`${this.props.id} componentDidMount() called.`);
+  }
+
+  componentDidUpdate() {
+    console.log(`${this.props.id} componentDidUpdate() called.`);
+  }
+
+  componentWillUnmount() {
+    console.log(`${this.props.id} componentWillUnmount() called.`)
+  }
+
   render(){
+    const {name, content} = this.props;
       return(
           <div style={styles.root}>
               <div style={styles.imageContainer}>
@@ -48,10 +66,10 @@ class Comment extends React.Component {
               </div>
               <div style={styles.commentContainer}>
                   <div style={styles.nameText}>
-                    {this.props.name}
+                    {name}
                   </div>
                   <span style={styles.contentText}>
-                      {this.props.content}
+                      {content}
                   </span>
               </div>
           </div>
